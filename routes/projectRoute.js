@@ -6,9 +6,12 @@ const {
   deleteProject,
   updateProject,
 } = require("../controllers/projectController");
+const requireAuth = require("../middlewares/requireAuth");
 
 // router
 const router = express.Router();
+
+router.use(requireAuth);
 
 // GET all projects
 router.get("/", getAllProjects);
